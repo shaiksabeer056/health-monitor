@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Health Predictor - Neural Health AI</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="container">
+        <!-- Auth Section -->
+        <div id="authSection" class="auth-section">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="ai-logo">🧠 AI Health</div>
+                    <h1>Neural Health Predictor</h1>
+                    <p>Advanced AI-powered health assessment with persistent login</p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="signin">Sign In</button>
+                    <button class="tab-btn" data-tab="signup">Sign Up</button>
+                </div>
+
+                <!-- Sign In Form -->
+                <form id="signinForm" class="auth-form active">
+                    <div class="input-group">
+                        <label>Mobile or Email</label>
+                        <input type="text" id="signinIdentifier" placeholder="Enter mobile or email" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="signinPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="auth-btn primary">🚀 Sign In</button>
+
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signupForm" class="auth-form">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="signupName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Mobile Number (10 digits)</label>
+                        <input type="tel" id="signupMobile" placeholder="98xxxxxxxx" pattern="[0-9]{10}" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="signupEmail" placeholder="your@email.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="signupPassword" placeholder="Create strong password" required>
+                    </div>
+                    <button type="submit" class="auth-btn primary">✨ Create Account</button>
+                </form>
+
+                <div id="authMessage" class="auth-message"></div>
+                <div id="notificationStatus" class="notification-status hidden"></div>
+            </div>
+        </div>
+
+        <!-- Main App -->
+        <div id="app" class="app-section hidden">
+            <header class="header">
+                <div class="header-left">
+                    <div class="ai-logo">🧠 Neural Health AI</div>
+                    <span id="userInfo" class="user-info"></span>
+                </div>
+                <button id="logoutBtn" class="logout-btn">🚪 Logout</button>
+            </header>
+
+            <form id="healthForm" class="health-form">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Age</label>
+                        <input type="number" id="age" min="0" max="120" value="30" step="1">
+                        <span id="ageVal">30</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Gender</label>
+                        <select id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="input-group full-width bmi-group">
+                        <label>BMI <span id="bmiVal">22</span></label>
+                        <div class="bmi-inputs">
+                            <input type="number" id="height" placeholder="Height (cm)">
+                            <input type="number" id="weight" placeholder="Weight (kg)" step="0.1">
+                            <button type="button" id="calcBMI" class="calc-btn">Calculate</button>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>BP (systolic) <span id="bpVal">120</span></label>
+                        <input type="range" id="bp" min="80" max="200" value="120">
+                    </div>
+                    <div class="input-group">
+                        <label>Cholesterol <span id="cholVal">180</span></label>
+                        <input type="range" id="cholesterol" min="100" max="400" value="180">
+                    </div>
+                </div>
+
+                <div class="symptoms-group">
+                    <label>Symptoms & Doctor Reports</label>
+
+                    <!-- Upload Section -->
+                    <div class="upload-zone">
+                        <input type="file" id="reportUpload" accept=".json,.txt,.pdf,.docx" multiple>
+                        <label for="reportUpload" class="upload-label">
+                            📁 Upload Doctor Reports (JSON/TXT/PDF)
+                        </label>
+                        <small>AI will parse symptoms automatically</small>
+                    </div>
+
+                    <!-- Image Upload Section (Fast: uses filename/alt text fallback only) -->
+                    <div class="upload-zone" id="imageUploadZone">
+                        <input type="file" id="imageUpload" accept="image/*" multiple>
+                        <label for="imageUpload" class="upload-label">
+                            🖼️ Upload Medical Image (fast mode)
+                        </label>
+                        <small>Instant prediction: filename → symptoms (no slow OCR)</small>
+                    </div>
+
+                    <!-- Image preview + detected symptoms -->
+                    <div id="imagePreviewWrap" class="parsed-preview hidden">
+                        <strong>🧾 Detected symptoms from image filename</strong>
+                        <div id="detectedSymptomsChips" class="chips-container"></div>
+                        <div id="imageDetectedRaw" style="margin-top:12px;color:rgba(255,255,255,0.85);font-size:0.95em;"></div>
+                    </div>
+
+                    <!-- Dynamic Symptoms -->
+                    <div class="symptoms-search">
+                        <input type="text" id="symptomsSearch" placeholder="🔍 Search symptoms or diseases...">
+                    </div>
+                    <div id="symptomsSelect" class="symptoms-select"></div>
+
+                    <!-- Parsed Preview -->
+                    <div id="parsedPreview" class="parsed-preview hidden"></div>
+                </div>
+
+                <button type="submit" class="predict-btn gradient-btn">🚀 Analyze with AI</button>
+            </form>
+
+            <div id="loading" class="loading hidden">
+                <div class="ai-spinner"></div>
+                <p>Neural network analyzing your health data...</p>
+            </div>
+
+            <div id="results" class="results-section hidden">
+                <div class="score-card">
+                    <h2>Health Score</h2>
+                    <div class="score-circle">
+                        <span id="healthScore">0</span>
+                        <span>/100</span>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <canvas id="riskChart"></canvas>
+                    <canvas id="metricsChart"></canvas>
+                </div>
+
+                <div class="results-content">
+                    <div class="risks-card">
+                        <h3>🔴 Predicted Risks</h3>
+                        <ul id="riskList"></ul>
+                    </div>
+                    <div class="advice-card">
+                        <h3>💡 AI Recommendations</h3>
+                        <p id="adviceText"></p>
+                    </div>
+                </div>
+
+                <button id="newPrediction" class="new-btn gradient-btn">New Analysis</button>
+            </div>
+
+            <div id="history" class="history-section">
+                <h3>📊 Your Prediction History</h3>
+                <ul id="historyList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
