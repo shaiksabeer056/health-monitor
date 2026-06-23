@@ -1,0 +1,86 @@
+{
+  "categories": {
+    "Cardiovascular": {
+      "diseases": [
+        {"name": "Hypertension", "symptoms": ["headache", "dizziness", "chest_pain", "short_breath", "fatigue", "vision_blurred"]},
+        {"name": "Coronary Artery Disease", "symptoms": ["chest_pain", "short_breath", "fatigue", "sweating", "nausea"]},
+        {"name": "Heart Failure", "symptoms": ["short_breath", "fatigue", "swelling_legs", "cough", "rapid_weight_gain"]},
+        {"name": "Arrhythmia", "symptoms": ["palpitations", "dizziness", "fainting", "chest_pain", "short_breath"]},
+        {"name": "Stroke", "symptoms": ["sudden_weakness", "confusion", "trouble_speaking", "vision_loss", "severe_headache"]}
+      ]
+    },
+    "Endocrine": {
+      "diseases": [
+        {"name": "Diabetes Type 1", "symptoms": ["frequent_urination", "thirst", "hunger", "weight_loss", "fatigue"]},
+        {"name": "Diabetes Type 2", "symptoms": ["frequent_urination", "thirst", "blurred_vision", "fatigue", "slow_healing_wounds"]},
+        {"name": "Hypothyroidism", "symptoms": ["fatigue", "weight_gain", "cold_intolerance", "dry_skin", "hair_loss"]},
+        {"name": "Hyperthyroidism", "symptoms": ["weight_loss", "rapid_heartbeat", "sweating", "anxiety", "tremors"]}
+      ]
+    },
+    "Respiratory": {
+      "diseases": [
+        {"name": "Asthma", "symptoms": ["wheezing", "short_breath", "chest_tightness", "cough"]},
+        {"name": "COPD", "symptoms": ["short_breath", "chronic_cough", "wheezing", "fatigue"]},
+        {"name": "Pneumonia", "symptoms": ["fever", "cough", "short_breath", "chest_pain", "fatigue"]},
+        {"name": "COVID-19", "symptoms": ["fever", "cough", "short_breath", "loss_taste_smell", "fatigue"]},
+        {"name": "Tuberculosis", "symptoms": ["persistent_cough", "cough_blood", "night_sweats", "fever", "weight_loss"]}
+      ]
+    },
+    "Cancer": {
+      "diseases": [
+        {"name": "Lung Cancer", "symptoms": ["persistent_cough", "chest_pain", "short_breath", "weight_loss", "cough_blood"]},
+        {"name": "Breast Cancer", "symptoms": ["lump_breast", "nipple_discharge", "skin_dimpling", "pain"]},
+        {"name": "Prostate Cancer", "symptoms": ["frequent_urination", "blood_urine", "difficulty_urinating", "pelvic_discomfort"]},
+        {"name": "Colorectal Cancer", "symptoms": ["blood_stool", "abdominal_pain", "weight_loss", "changes_bowel_habits"]}
+      ]
+    },
+    "Infectious": {
+      "diseases": [
+        {"name": "Influenza", "symptoms": ["fever", "cough", "sore_throat", "muscle_aches", "fatigue"]},
+        {"name": "Hepatitis B", "symptoms": ["fatigue", "jaundice", "abdominal_pain", "dark_urine", "loss_appetite"]},
+        {"name": "HIV/AIDS", "symptoms": ["fever", "rash", "swollen_lymph_nodes", "fatigue", "weight_loss"]},
+        {"name": "Malaria", "symptoms": ["fever", "chills", "headache", "muscle_pain", "fatigue"]}
+      ]
+    },
+    "Neurological": {
+      "diseases": [
+        {"name": "Alzheimer's", "symptoms": ["memory_loss", "confusion", "difficulty_planning", "disorientation"]},
+        {"name": "Parkinson's", "symptoms": ["tremors", "slowed_movement", "rigid_muscles", "balance_problems"]},
+        {"name": "Epilepsy", "symptoms": ["seizures", "loss_consciousness", "staring_spells", "convulsions"]},
+        {"name": "Migraine", "symptoms": ["severe_headache", "nausea", "sensitivity_light", "aura"]}
+      ]
+    },
+    "Gastrointestinal": {
+      "diseases": [
+        {"name": "GERD", "symptoms": ["heartburn", "regurgitation", "difficulty_swallowing", "chest_pain"]},
+        {"name": "Irritable Bowel Syndrome", "symptoms": ["abdominal_pain", "bloating", "diarrhea", "constipation"]},
+        {"name": "Crohn's Disease", "symptoms": ["abdominal_pain", "diarrhea", "fatigue", "weight_loss", "blood_stool"]},
+        {"name": "Ulcerative Colitis", "symptoms": ["bloody_diarrhea", "abdominal_pain", "urgency_defecate", "weight_loss"]}
+      ]
+    },
+    "Musculoskeletal": {
+      "diseases": [
+        {"name": "Osteoarthritis", "symptoms": ["joint_pain", "stiffness", "reduced_range_motion", "swelling"]},
+        {"name": "Rheumatoid Arthritis", "symptoms": ["joint_pain", "swelling", "morning_stiffness", "fatigue"]},
+        {"name": "Osteoporosis", "symptoms": ["back_pain", "loss_height", "stooped_posture", "fractures"]}
+      ]
+    },
+    "Mental Health": {
+      "diseases": [
+        {"name": "Depression", "symptoms": ["persistent_sadness", "loss_interest", "fatigue", "sleep_disturbances", "suicidal_thoughts"]},
+        {"name": "Anxiety Disorder", "symptoms": ["excessive_worry", "restlessness", "fatigue", "panic_attacks"]},
+        {"name": "Bipolar Disorder", "symptoms": ["mood_swings", "mania", "depression", "impulsivity"]}
+      ]
+    },
+    "Other": {
+      "diseases": [
+        {"name": "Anemia", "symptoms": ["fatigue", "weakness", "pale_skin", "shortness_breath", "dizziness"]},
+        {"name": "Kidney Disease", "symptoms": ["fatigue", "swelling", "changes_urination", "nausea"]},
+        {"name": "Liver Cirrhosis", "symptoms": ["fatigue", "jaundice", "swelling_abdomen", "easy_bruising"]},
+        {"name": "Obesity", "symptoms": ["weight_gain", "joint_pain", "short_breath", "sleep_apnea"]},
+        {"name": "Allergies", "symptoms": ["sneezing", "itchy_eyes", "runny_nose", "hives", "asthma"]}
+      ]
+    }
+  },
+  "allSymptoms": ["headache", "dizziness", "chest_pain", "short_breath", "fatigue", "vision_blurred", "sweating", "nausea", "swelling_legs", "cough", "rapid_weight_gain", "palpitations", "fainting", "sudden_weakness", "confusion", "trouble_speaking", "vision_loss", "severe_headache", "frequent_urination", "thirst", "hunger", "weight_loss", "blurred_vision", "slow_healing_wounds", "weight_gain", "cold_intolerance", "dry_skin", "hair_loss", "rapid_heartbeat", "anxiety", "tremors", "wheezing", "chest_tightness", "fever", "chronic_cough", "night_sweats", "loss_taste_smell", "persistent_cough", "cough_blood", "lump_breast", "nipple_discharge", "skin_dimpling", "pain", "blood_urine", "difficulty_urinating", "pelvic_discomfort", "blood_stool", "abdominal_pain", "changes_bowel_habits", "sore_throat", "muscle_aches", "rash", "swollen_lymph_nodes", "chills", "muscle_pain", "memory_loss", "difficulty_planning", "disorientation", "tremor", "slowed_movement", "rigid_muscles", "balance_problems", "seizures", "loss_consciousness", "staring_spells", "convulsions", "sensitivity_light", "aura", "heartburn", "regurgitation", "difficulty_swallowing", "bloating", "diarrhea", "constipation", "urgency_defecate", "joint_pain", "stiffness", "reduced_range_motion", "swelling", "morning_stiffness", "back_pain", "loss_height", "stooped_posture", "fractures", "persistent_sadness", "loss_interest", "sleep_disturbances", "suicidal_thoughts", "excessive_worry", "restlessness", "panic_attacks", "mood_swings", "mania", "impulsivity", "weakness", "pale_skin", "shortness_breath", "swelling", "changes_urination", "jaundice", "swelling_abdomen", "easy_bruising"]
+}
